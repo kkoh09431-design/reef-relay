@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#073c56">
   <title>Reef Relay</title>
   <link rel="stylesheet" href="style.css">
-  <style>.countdown{min-width:78px}.countdown strong{font-size:14px;color:var(--coral)}.pulse-button{pointer-events:auto;border:1px solid rgba(255,213,116,.5);background:rgba(255,213,116,.1);color:var(--sun);font-size:8px;font-weight:800;letter-spacing:1px;padding:4px 7px;cursor:pointer}.pulse-button:hover,.pulse-button:focus-visible{outline:2px solid var(--foam);outline-offset:2px}.pulse-button:disabled{opacity:.45;cursor:default}.legend-dot.amber{background:var(--sun)}.legend-dot.mint{background:var(--glass)}.legend-dot.coral{background:var(--coral)}.legend-dot.gold{background:var(--sun)}</style>
+  <style>.pulse-button{pointer-events:auto;border:1px solid rgba(255,213,116,.5);background:rgba(255,213,116,.1);color:var(--sun);font-size:8px;font-weight:800;letter-spacing:1px;padding:4px 7px;cursor:pointer}.pulse-button:hover,.pulse-button:focus-visible{outline:2px solid var(--foam);outline-offset:2px}.pulse-button:disabled{opacity:.45;cursor:default}.legend-dot.amber{background:var(--sun)}.legend-dot.mint{background:var(--glass)}.legend-dot.coral{background:var(--coral)}.legend-dot.gold{background:var(--sun)}</style>
 </head>
 <body>
   <main class="app" aria-label="Reef Relay game">
@@ -26,7 +26,6 @@
         <div class="hud-block tide"><span class="eyebrow">CURRENT STUDY</span><strong id="stageName">TIDE 01 <small>/ 05</small></strong><span id="stageHint">The nursery shelf</span></div>
         <div class="hud-block deliveries"><span class="eyebrow">DELIVERED</span><strong><span id="score">00</span><small> / <span id="goal">04</span></small></strong><span class="streak" id="streak">START A STREAK</span></div>
         <div class="hud-block oxygen"><span class="eyebrow">OXYGEN</span><strong id="oxygenText">100%</strong><div class="oxygen-track"><span id="oxygenBar"></span></div></div>
-        <div class="hud-block countdown"><span class="eyebrow">TIDE WINDOW</span><strong id="tideTimer">38s</strong><span>KEEP THE FLOW</span></div>
         <div class="hud-block pulse"><span class="eyebrow">CURRENT PULSE</span><strong id="pulseText">READY</strong><button id="pulseButton" class="pulse-button" aria-label="Send a current pulse">PULSE</button></div>
       </div>
       <div class="bottomline"><span><kbd>CLICK</kbd> select <kbd>CLICK AGAIN</kbd> turn <kbd>RIGHT-CLICK</kbd> reverse</span><span id="status" role="status" aria-live="polite">A quiet current is finding its way.</span><span class="key-cluster"><kbd>← →</kbd> turn <kbd>SPACE</kbd> pulse <kbd>P</kbd> pause <kbd>R</kbd> restart</span></div>
@@ -35,7 +34,7 @@
           <div class="overlay-kicker" id="overlayKicker">FIELD NOTES · 01</div>
           <h1 id="overlayTitle">REEF<br><em>RELAY</em></h1>
           <p id="overlayCopy">Weave the deep currents. Guide each drifting spore home.</p>
-          <div class="rule-strip" id="ruleStrip"><span>01 <b>TURN</b> vanes</span><span>02 <b>MATCH</b> gardens</span><span>03 <b>PULSE</b> to nudge</span></div>
+          <div class="rule-strip" id="ruleStrip"><span>01 <b>TURN</b> vanes</span><span>02 <b>MATCH</b> gardens</span><span>03 <b>GUARD</b> oxygen</span></div>
           <button id="primaryButton" class="primary"><span>BEGIN THE STUDY</span><b>→</b></button>
           <div class="overlay-foot" id="overlayFoot">ARROWS / CLICK TO TURN <i>·</i> SPACE TO PULSE</div>
         </div>
@@ -43,7 +42,7 @@
       <div id="helpPanel" class="help-panel" hidden>
         <button class="help-close" id="helpClose" aria-label="Close help">×</button>
         <span class="eyebrow">FIELD GUIDE</span><h2>Weave a way home.</h2>
-        <p>Each round well sends a spore along its bright exit lane. Match amber spores to fan gardens and sea-glass spores to cup gardens. The next well can turn a route again. A tide window and each spore's drift time keep the current moving; misses cost oxygen.</p>
+        <p>Each round well sends a spore along its bright exit arrow. Match amber spores to fan gardens and sea-glass spores to cup gardens. Mixed tides alternate colors at the junction; missed spores and wrong gardens cost oxygen.</p>
         <div class="help-keys"><span><kbd>CLICK</kbd> select, click again turn</span><span><kbd>RIGHT-CLICK</kbd> reverse</span><span><kbd>SPACE</kbd> pulse or use button</span><span><kbd>P</kbd> pause <kbd>R</kbd> restart</span></div>
       </div>
     </section>

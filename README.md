@@ -8,6 +8,12 @@ An original offline browser puzzle about bending underwater currents to guide gl
 
 ![Reef Relay opening tide](screenshots/01-title.jpg)
 
+## Gallery
+
+| Title | Current routing | Heart of the reef | Sanctuary restored |
+| --- | --- | --- | --- |
+| [![Title](screenshots/01-title.jpg)](screenshots/01-title.jpg) | [![Current routing](screenshots/02-current-routing.jpg)](screenshots/02-current-routing.jpg) | [![Heart of the reef](screenshots/03-heart-of-the-reef.jpg)](screenshots/03-heart-of-the-reef.jpg) | [![Sanctuary restored](screenshots/04-sanctuary-restored.jpg)](screenshots/04-sanctuary-restored.jpg) |
+
 ## Run it
 
 Open `game/index.html` directly in a desktop browser. No install, build, or network connection is required. Alternatively, serve the game locally:
@@ -24,17 +30,11 @@ Then open `http://localhost:8080`.
 - Use Left/Right or A/D to turn the selected well, and Up/Down or W/S to select another.
 - Press Space or Enter, or use the on-screen `PULSE` button, to nudge spores forward. The pulse recharges over time.
 - Match amber spores to fan-shaped amber gardens and sea-glass spores to cup-shaped gardens. Wrong deliveries and missed spores cost oxygen; zero oxygen ends the run.
-- Clear all five tides. P pauses or resumes, and R restarts.
+- Clear all five tides. Wrong gardens and spores that drift too long or escape reduce oxygen; oxygen carries between tides and zero ends the run. P pauses or resumes, and R restarts.
 
-## Route notes
+## Field guide
 
-The bright dashed path shows each tide's intended exit lanes. Turns below are relative to the wells' starting arrows; spores can be in flight while you adjust a well.
-
-- Tide 01: Turn the single upward arrow clockwise to the right.
-- Tide 02: Turn the first well counterclockwise to climb, then the upper well clockwise to exit right.
-- Tide 03: Turn the first well counterclockwise to climb; the upper well already exits right.
-- Tide 04: Turn the second well clockwise to descend; the third well already exits right toward the amber garden.
-- Tide 05: Turn the second well clockwise to descend, then the fourth well counterclockwise to climb to the mint garden.
+Read each spore's color and the local exit shown at its next well. Routes become more complex as you progress. Use the pulse when a spore needs a nudge, and restart after oxygen runs out.
 
 ## Quality checks
 
@@ -42,7 +42,7 @@ Run `node tests/model.test.cjs` for deterministic simulation checks. Check JavaS
 
 ## Known limitations
 
-This is a short arcade puzzle rather than a long-form campaign. It has no saved high score or persistent settings.
+The game has a compact five-tide campaign. Scores and settings are not saved.
 
 ## License
 
