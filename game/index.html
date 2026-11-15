@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#073c56">
+  <title>Reef Relay</title>
+  <link rel="stylesheet" href="style.css">
+  <style>.countdown{min-width:78px}.countdown strong{font-size:14px;color:var(--coral)}.pulse-button{pointer-events:auto;border:1px solid rgba(255,213,116,.5);background:rgba(255,213,116,.1);color:var(--sun);font-size:8px;font-weight:800;letter-spacing:1px;padding:4px 7px;cursor:pointer}.pulse-button:hover,.pulse-button:focus-visible{outline:2px solid var(--foam);outline-offset:2px}.pulse-button:disabled{opacity:.45;cursor:default}.legend-dot.amber{background:var(--sun)}.legend-dot.mint{background:var(--glass)}.legend-dot.coral{background:var(--coral)}.legend-dot.gold{background:var(--sun)}</style>
+</head>
+<body>
+  <main class="app" aria-label="Reef Relay game">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Reef Relay home"><span class="brand-mark">◉</span><span>REEF <b>RELAY</b></span></a>
+      <div class="depth-readout"><span class="live-dot"></span><span>PELAGIC SANCTUARY</span><i></i><span id="depth">DEPTH 024m</span></div>
+      <nav class="tools" aria-label="Game controls">
+        <button id="helpButton" class="tool" title="How to play" aria-label="How to play">?</button>
+        <button id="soundButton" class="tool" title="Toggle sound" aria-label="Toggle sound">♪</button>
+        <button id="pauseButton" class="tool" title="Pause or resume (P)" aria-label="Pause or resume">Ⅱ</button>
+        <button id="restartButton" class="tool" title="Restart (R)" aria-label="Restart">↻</button>
+      </nav>
+    </header>
+    <section class="game-wrap" aria-label="Reef play field">
+      <div class="canvas-frame"><canvas id="reef" aria-label="Underwater current-routing game" tabindex="0"></canvas></div>
+      <div class="hud">
+        <div class="hud-block tide"><span class="eyebrow">CURRENT STUDY</span><strong id="stageName">TIDE 01 <small>/ 05</small></strong><span id="stageHint">The nursery shelf</span></div>
+        <div class="hud-block deliveries"><span class="eyebrow">DELIVERED</span><strong><span id="score">00</span><small> / <span id="goal">04</span></small></strong><span class="streak" id="streak">START A STREAK</span></div>
+        <div class="hud-block oxygen"><span class="eyebrow">OXYGEN</span><strong id="oxygenText">100%</strong><div class="oxygen-track"><span id="oxygenBar"></span></div></div>
+        <div class="hud-block countdown"><span class="eyebrow">TIDE WINDOW</span><strong id="tideTimer">38s</strong><span>KEEP THE FLOW</span></div>
+        <div class="hud-block pulse"><span class="eyebrow">CURRENT PULSE</span><strong id="pulseText">READY</strong><button id="pulseButton" class="pulse-button" aria-label="Send a current pulse">PULSE</button></div>
+      </div>
+      <div class="bottomline"><span><kbd>CLICK</kbd> select <kbd>CLICK AGAIN</kbd> turn <kbd>RIGHT-CLICK</kbd> reverse</span><span id="status" role="status" aria-live="polite">A quiet current is finding its way.</span><span class="key-cluster"><kbd>← →</kbd> turn <kbd>SPACE</kbd> pulse <kbd>P</kbd> pause <kbd>R</kbd> restart</span></div>
+      <div id="overlay" class="overlay" hidden>
+        <div class="overlay-content">
+          <div class="overlay-kicker" id="overlayKicker">FIELD NOTES · 01</div>
+          <h1 id="overlayTitle">REEF<br><em>RELAY</em></h1>
+          <p id="overlayCopy">Weave the deep currents. Guide each drifting spore home.</p>
+          <div class="rule-strip" id="ruleStrip"><span>01 <b>TURN</b> vanes</span><span>02 <b>MATCH</b> gardens</span><span>03 <b>PULSE</b> to nudge</span></div>
+          <button id="primaryButton" class="primary"><span>BEGIN THE STUDY</span><b>→</b></button>
+          <div class="overlay-foot" id="overlayFoot">ARROWS / CLICK TO TURN <i>·</i> SPACE TO PULSE</div>
+        </div>
+      </div>
+      <div id="helpPanel" class="help-panel" hidden>
+        <button class="help-close" id="helpClose" aria-label="Close help">×</button>
+        <span class="eyebrow">FIELD GUIDE</span><h2>Weave a way home.</h2>
+        <p>Each round well sends a spore along its bright exit lane. Match amber spores to fan gardens and sea-glass spores to cup gardens. The next well can turn a route again. A tide window and each spore's drift time keep the current moving; misses cost oxygen.</p>
+        <div class="help-keys"><span><kbd>CLICK</kbd> select, click again turn</span><span><kbd>RIGHT-CLICK</kbd> reverse</span><span><kbd>SPACE</kbd> pulse or use button</span><span><kbd>P</kbd> pause <kbd>R</kbd> restart</span></div>
+      </div>
+    </section>
+    <footer class="footer"><span>LIGHT FALLS THROUGH <b>05 TIDES</b></span><span class="legend"><i class="legend-dot amber"></i> AMBER SPORE <i class="legend-dot mint"></i> SEA-GLASS SPORE <i class="legend-dot coral"></i> CORAL GARDEN <i class="legend-dot gold"></i> SUNLIT CURRENT</span><span>FIELD LOG <b>RR—024</b></span></footer>
+  </main>
+  <script src="src/model.js"></script>
+  <script src="src/audio.js"></script>
+  <script src="src/render.js"></script>
+  <script src="src/controls.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
